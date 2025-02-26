@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bundle & Save</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #eef2ff;
+        }
+        .bundle-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            width: 380px;
+            border: 2px solid #a5b4fc;
+        }
+        .bundle-option {
+            border: 2px solid #a5b4fc;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            background: #f3f4f6;
+            transition: all 0.3s ease;
+        }
+        .bundle-option.selected {
+            border-color: #4f46e5;
+            background-color: #dbeafe;
+        }
+        .bundle-option input {
+            margin-right: 10px;
+        }
+        .bundle-details {
+            display: none;
+            margin-top: 10px;
+        }
+        .bundle-option.selected .bundle-details {
+            display: block;
+        }
+        .selection-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .selection-row label {
+            flex: 1;
+            text-align: center;
+            font-weight: bold;
+            color: #374151;
+        }
+        select {
+            width: 90%;
+            padding: 6px;
+            border-radius: 5px;
+            border: 1px solid #a5b4fc;
+        }
+        .total-price {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+            color: #4f46e5;
+        }
+        .add-to-cart {
+            width: 100%;
+            background-color: #4f46e5;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .add-to-cart:hover {
+            background-color: #4338ca;
+        }
+    </style>
+</head>
+<body>
+    <div class="bundle-container">
+        <h2 style="text-align: center; color: #4f46e5;">Bundle & Save</h2>
+        <div class="bundle-option" onclick="selectBundle(1, 195)">
+            <input type="radio" name="bundle" value="1"> 1 Pair - DKK 195.00 (50% OFF)
+            <div class="bundle-details">
+                <div class="selection-row">
+                    <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                    <label>Color: <select><option>Red</option><option>Blue</option><option>Green</option></select></label>
+                </div>
+                <div class="selection-row">
+                    <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                    <label>Color: <select><option>Red</option><option>Blue</option><option>Green</option></select></label>
+                </div>
+            </div>
+        </div>
+        <div class="bundle-option" onclick="selectBundle(2, 345)">
+            <input type="radio" name="bundle" value="2"> 2 Pair - DKK 345.00 (40% OFF)
+            <div class="bundle-details">
+                <div class="selection-row">
+                    <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                    <label>Color: <select><option>Red</option><option>Blue</option><option>Green</option></select></label>
+                </div>
+                <div class="selection-row">
+                    <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                    <label>Color: <select><option>Red</option><option>Blue</option><option>Green</option></select></label>
+                </div>
+            </div>
+        </div>
+        <div class="bundle-option" onclick="selectBundle(3, 528)">
+            <input type="radio" name="bundle" value="3"> 3 Pair - DKK 528.00 (60% OFF)
+            <div class="bundle-details">
+                <div class="selection-row">
+                    <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                    <label>Color: <select><option>Red</option><option>Blue</option><option>Green</option></select></label>
+                </div>
+                <div class="selection-row">
+                    <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                    <label>Color: <select><option>Red</option><option>Blue</option><option>Green</option></select></label>
+                </div>
+            </div>
+        </div>
+        <div class="total-price">Total: DKK <span id="total">0</span></div>
+        <button class="add-to-cart">+ Add to Cart</button>
+    </div>
+
+    <script>
+        function selectBundle(pairCount, price) {
+            document.querySelectorAll('.bundle-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+            document.getElementById('total').innerText = price;
+        }
+    </script>
+</body>
+</html>
